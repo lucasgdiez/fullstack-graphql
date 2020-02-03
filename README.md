@@ -2,8 +2,8 @@
 
 From zero to production, using React and Apollo.
 
-##Scope
+## Scope
 HackerNews example
 
-##Goals
+## Goals
 Keep improving on GraphQL and Apollo!
