@@ -1,13 +1,21 @@
-const { GraphQLServer } = require('graphql-yoga');
+const { GraphQLServer } = require("graphql-yoga");
 
 const typeDefs = `
   type Query {
     info: String!
+    feed: [Link!]!
   }
-`
+
+  type Link {
+    id: ID!,
+    description: String!,
+    url: String!
+  }
+`;
 const resolvers = {
   Query: {
-    info: () => 'This is the API of a HackerNews Clone'
+    info: () => "This is the API of a HackerNews Clone",
+    feed: () => 
   }
 };
 
