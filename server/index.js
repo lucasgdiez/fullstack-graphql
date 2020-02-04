@@ -18,7 +18,12 @@ let idCount = links.length;
 const resolvers = {
   Query: {
     info: () => "This is the API of a HackerNews Clone",
-    feed: () => links
+    feed: () => links,
+    link: (parent, args) => {
+      return links.find((data) => {
+        return data.id === args.id;
+      });
+    }
   },
   Mutation: {
     post: (parent, args) => {
