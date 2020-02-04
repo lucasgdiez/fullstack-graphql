@@ -13,10 +13,16 @@ let links = [
   }
 ];
 
+//SCHEMA TOO LARGE! LETS R E F A C T O R
+
 const typeDefs = `
   type Query {
     info: String!
     feed: [Link!]!
+  }
+
+  type Mutation {
+    post(url: String!, description: String!): Link!
   }
 
   type Link {
