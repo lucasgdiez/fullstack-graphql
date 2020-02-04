@@ -13,24 +13,6 @@ let links = [
   }
 ];
 
-//SCHEMA TOO LARGE! LETS R E F A C T O R
-
-const typeDefs = `
-  type Query {
-    info: String!
-    feed: [Link!]!
-  }
-
-  type Mutation {
-    post(url: String!, description: String!): Link!
-  }
-
-  type Link {
-    id: ID!,
-    description: String!,
-    url: String!
-  }
-`;
 const resolvers = {
   Query: {
     info: () => "This is the API of a HackerNews Clone",
@@ -44,7 +26,7 @@ const resolvers = {
 };
 
 const server = new GraphQLServer({
-  typeDefs,
+  typeDefs: "./schemas/schema.graphql",
   resolvers
 });
 
