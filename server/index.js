@@ -50,6 +50,14 @@ const resolvers = {
       });
 
       return newLink;
+    },
+    deleteLink: (parent, args) => {
+      links.map((data, index) => {
+        if (data.id === args.id) {
+          links.splice(index, 1);
+        }
+      });
+      return { ...args };
     }
   }
 };
