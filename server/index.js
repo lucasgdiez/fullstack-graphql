@@ -3,7 +3,9 @@ const { GraphQLServer } = require("graphql-yoga");
 const resolvers = {
   Query: {
     info: () => "This is the API of a HackerNews Clone",
-    feed: () => links,
+    feed: (root, args, context, info) => {
+      return context.prisma.links();
+    },
     link: (parent, args) => {
       return links.find((data) => {
         return data.id === args.id;
@@ -11,15 +13,20 @@ const resolvers = {
     }
   },
   Mutation: {
-    post: (parent, args) => {
-      const link = {
-        id: `link-${idCount++}`,
-        description: args.description,
-        url: args.url
-      };
+    post: (root, args, context) => {
+      // const link = {
+      //   id: `link-${idCount++}`,
+      //   description: args.description,
+      //   url: args.url
+      // };
 
-      links.push(link);
-      return link;
+      // links.push(link);
+      // return link;
+
+      return context.prisma.createLink({
+        url: args.url,
+        description: args.description
+      });
     },
     updateLink: (parent, args) => {
       const newLink = {
