@@ -14,15 +14,6 @@ const resolvers = {
   },
   Mutation: {
     post: (root, args, context) => {
-      // const link = {
-      //   id: `link-${idCount++}`,
-      //   description: args.description,
-      //   url: args.url
-      // };
-
-      // links.push(link);
-      // return link;
-
       return context.prisma.createLink({
         url: args.url,
         description: args.description
