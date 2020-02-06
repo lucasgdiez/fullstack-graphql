@@ -1,20 +1,5 @@
 const { GraphQLServer } = require("graphql-yoga");
 
-let links = [
-  {
-    id: "link-0",
-    url: "www.google.com",
-    description: "Google Website"
-  },
-  {
-    id: "link-1",
-    url: "www.twitter.com",
-    description: "Twitter Website"
-  }
-];
-
-let idCount = links.length;
-
 const resolvers = {
   Query: {
     info: () => "This is the API of a HackerNews Clone",
